@@ -24,6 +24,7 @@ import re
 st.set_page_config(
     page_title="Easy PDF Reader",
     layout="wide",
+    page_icon="📘",
     initial_sidebar_state="expanded"
 )
 
