@@ -22,7 +22,7 @@ import re
 
 
 st.set_page_config(
-    page_title="Easy PDF Reader",
+    page_title="Easy PDF/Blog Reader",
     layout="wide",
     page_icon="📘",
     initial_sidebar_state="expanded"
@@ -30,6 +30,20 @@ st.set_page_config(
 
 api_key_streamlit=st.secrets["api_key_streamlit"]
 
+page_bg_img = """
+<style>
+[data-testid="stAppViewContainer"]{
+background-color: #e5e5f7;
+opacity: 1;
+background-size: 20px 20px;
+background-image:  repeating-linear-gradient(0deg, #a5a5a5, #a5a5a5 1px, #e5e5f7 1px, #e5e5f7);
+}
+[data-testid="stHeader"]{
+    background-color: rgba(0,0,0,0);
+}
+</style>
+"""
+st.markdown(page_bg_img,unsafe_allow_html=True)
 
 
 # since we doont to keep runing frontend code while reciving from openai without intrepuuting while waiting
@@ -117,7 +131,7 @@ async def main():
  
         
         
-    st.title("PDFChat")
+    st.title("Chat with your PDF/Blog")
     
     if 'history' not in st.session_state:
         st.session_state['history'] = []
