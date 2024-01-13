@@ -27,7 +27,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-#api_key=st.secrets["api_key"]
+api_key=st.secrets["api_key_streamlit"]
 
 
 
