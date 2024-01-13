@@ -27,7 +27,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-api_key=st.secrets["api_key_streamlit"]
+api_key_streamlit=st.secrets["api_key_streamlit"]
 
 
 
@@ -44,7 +44,7 @@ async def main():
         chunks = splitter.split_text(corpus)
         
         #Generate Embeddings of the functions
-        embeddings = OpenAIEmbeddings(openai_api_key=api_key)
+        embeddings = OpenAIEmbeddings(openai_api_key=api_key_streamlit)
         
         #vectors stores the embeddings corresponidings to each chunk in a file
         vectors = FAISS.from_texts(chunks,embeddings)
@@ -79,7 +79,7 @@ async def main():
         splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         chunks = splitter.split_documents(documents)
 
-        embeddings = OpenAIEmbeddings(openai_api_key=api_key)
+        embeddings = OpenAIEmbeddings(openai_api_key=api_key_streamlit)
         vectors = FAISS.from_documents(chunks, embeddings)
 
         with open(filename + ".pkl", "wb") as f:
@@ -133,7 +133,7 @@ async def main():
                 
                 #retreive previous converation and pass it to the next prompt
                 qa=ConversationalRetrievalChain.from_llm(ChatOpenAI(model_name="gpt-3.5-turbo",
-                                                                    openai_api_key=api_key), #returns source documnets from the prevous statements allow and tell which chunks were used from these vectors that from questions
+                                                                    openai_api_key=api_key_streamlit), #returns source documnets from the prevous statements allow and tell which chunks were used from these vectors that from questions
                                                          retriever=vectors.as_retriever(),
                                                         return_source_documents=True)
     
@@ -151,7 +151,7 @@ async def main():
                 vectors = await getStringEmbeds(content, f"{valid_file_name}.txt")
                 print('#'*30)
                 qa=ConversationalRetrievalChain.from_llm(ChatOpenAI(model_name="gpt-3.5-turbo",
-                                                                    openai_api_key=api_key), #returns source documnets from the prevous statements allow and tell which chunks were used from these vectors that from questions
+                                                                    openai_api_key=api_key_streamlit), #returns source documnets from the prevous statements allow and tell which chunks were used from these vectors that from questions
                                                          retriever=vectors.as_retriever(),
                                                         return_source_documents=True)
                 print('#'*30)
