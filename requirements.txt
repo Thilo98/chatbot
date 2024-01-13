@@ -6,7 +6,5 @@ langchain==0.1.0
 html2text==2020.1.16
 requests==2.31.0
 openai==0.28.0
-re
-io
 faiss-cpu==1.7.4
-dotenv
+python-dotenv==1.0.0
