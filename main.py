@@ -27,7 +27,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-st.secrets["api_key"]
+api_key=st.secrets["api_key"]
 
 
 # since we doont to keep runing frontend code while reciving from openai without intrepuuting while waiting
