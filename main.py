@@ -29,7 +29,7 @@ st.set_page_config(
 
 st.secrets["api_key"]
 
-api_key = "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"
+
 # since we doont to keep runing frontend code while reciving from openai without intrepuuting while waiting
 # to response to come we us async function.
 async def main():
