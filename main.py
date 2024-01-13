@@ -73,8 +73,8 @@ async def main():
         text_loader_kwargs = {'autodetect_encoding': True}
         loader = DirectoryLoader(current_directory, glob="*.txt", loader_cls=TextLoader, loader_kwargs=text_loader_kwargs)
         documents = loader.load()
-        print('#'*30)
-        print("documents: ", documents)
+        # print('#'*30)
+        # print("documents: ", documents)
 
         splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         chunks = splitter.split_documents(documents)
