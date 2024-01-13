@@ -25,7 +25,8 @@ st.set_page_config(
     page_title="Easy PDF/Blog Reader",
     layout="wide",
     page_icon="📘",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
+    theme="light"
 )
 
 api_key_streamlit=st.secrets["api_key_streamlit"]
