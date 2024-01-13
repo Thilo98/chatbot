@@ -26,7 +26,7 @@ st.set_page_config(
     layout="wide",
     page_icon="📘",
     initial_sidebar_state="expanded",
-    theme="light"
+    
 )
 
 api_key_streamlit=st.secrets["api_key_streamlit"]
